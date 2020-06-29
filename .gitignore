@@ -1,5 +1,2 @@
-*.suo
+
 .vs/
-*.sln
-*.pyproj
-DataStructures.py
