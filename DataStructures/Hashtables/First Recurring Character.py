@@ -1,21 +1,16 @@
-def func(mylist):
+class RecurringCharacter():
+    @staticmethod
+    def find_first_recurring_char(data):
+        existing_characters = {};
+        
+        for character in data:
+            if character not in existing_characters:
+                existing_characters[character] = 1;
+            else:
+                return character
 
-  for i in range(0,len(mylist)):
-    for j in range(i+1,len(mylist)):
-      if mylist[i] == mylist[j]:
-        return mylist[i] 
-  return 0
+        return None
 
-def hashtable(mylist):
-  mydict = {}
-  for i in range(0,len(mylist)):
-    if mylist[i] in mydict:
-      return mylist[i]
-    else:
-      mydict[mylist[i]]=i
-  return 0
-  
 
-mylist = [2,1,1,2,3,4,5]
-x = hashtable(mylist)
-print(x)
+print(RecurringCharacter.find_first_recurring_char([1,3,4,2,5]))
+
