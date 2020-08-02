@@ -1,3 +1,6 @@
+#In Python below method is equivalent to pow(x,y,p)
+
+
 def powerModulus(x, y, p) : 
     res = 1     # Initialize result 
   
