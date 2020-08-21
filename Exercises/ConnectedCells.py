@@ -4,49 +4,46 @@ class UserMainCode(object):
 
     @classmethod
     def getNoOfConnectedPatches(cls,input1,input2,input3):
-        count = 0
-        for i in range(input1):
-            for j in range(input2):
-                if (input3[i][j] == 1):
-                    patch_size = UserMainCode.BFS(input3,input1,input2, i, j)
-                    if patch_size > 0:
-                        count+=1
-        return count
+        rempep = []
+        flag = False
+        index = 0
+        totalPep = 0
 
+        if(input3>0 and input4>0):
+            j=0
+            for i in range(input1):
+                div= input2[i]/input4
+                left=0
+                if(div<input3):
+                    input3-=div
+                    left = input2[i]%input4
+                else:
+                    input2[i]-=(input3*input4)
+                    input3=0
+                    i-=1
 
-    @staticmethod
-    def BFS(mat,input1,input2, row, col) :
-        patch_size = 0; 
-  
-        Q = Queue() 
-        Q.put(( row, col ))
-  
+                if(left>0):
+                    rempep.append(left)
+                if(input3==0):
+                    flag = True
+                    index = i
+                    break
+        else:
+            flag=true
+            index-=1
+        
+        if flag:
+            for i in range(index+1,input1):
+                totalPep+=input2[i]
 
-        while (not Q.empty()): 
-  
-            it = Q.get_nowait(); 
-  
-            r, c = it
-  
-            if (r < 0 or c < 0 or r >= input1 or c >= input2): 
-                continue 
-  
-            if (mat[r][c] == 0): 
-                continue
-  
-            if (mat[r][c] == 1):
-  
-                mat[r][c] = 0; 
-  
-                patch_size+=1 
-            
-  
-            Q.put(( r + 1, c )); 
-            Q.put(( r - 1, c )); 
-            Q.put(( r, c + 1 )); 
-            Q.put(( r, c - 1 )); 
-  
-        return patch_size; 
+            for i in range(len(rempep)):
+                totalPep+=rempep[i]
+        else:	
+            rempep.sort()
+            for i in range(len(rempep)-input3):
+                totalPep+=rempep[i]
+
+        return totalPep
 
 
 if __name__ == '__main__':
