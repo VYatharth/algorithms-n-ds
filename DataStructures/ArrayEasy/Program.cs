@@ -8,13 +8,16 @@ namespace ArrayEasy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var a = meanMedian(4, new int[4] { 4, 1, 3, 2 });
-            Array.Sort(a);
-            for (int i = 0; i < a.Length; i++)
-            {
-                Console.Write(a[i]);
-            }
+            var word = "str to Reverse";
+
+            StringReverse.ReverseRecursive(word,word.Length-1);
+            //Console.WriteLine("Hello World!");
+            //var a = meanMedian(4, new int[4] { 4, 1, 3, 2 });
+            //Array.Sort(a);
+            //for (int i = 0; i < a.Length; i++)
+            //{
+            //    Console.Write(a[i]);
+            //}
         }
 
         public static int[] meanMedian(int input1, int[] input2)
